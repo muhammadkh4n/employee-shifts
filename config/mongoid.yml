@@ -156,4 +156,6 @@ test:
           mode: :primary
         max_pool_size: 1
 production:
-  uri: <%= ENV['MONGO_URI'] %>
+  clients:
+    default:
+      uri: <%= ENV['MONGO_URI'] %>
