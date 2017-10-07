@@ -1,0 +1,17 @@
+<div class="add-buttons">
+  <div class="btn-group float-left">
+    <button class="btn btn-light border"
+            (click)="formModal('shop')" >Manage Shops</button>
+    <button class="btn btn-light border"
+            (click)="formModal('staff')" >Manage Staff</button>
+    <button class="btn btn-light border"
+            (click)="formModal('slot')" >Manage Time Slots</button>
+  </div>
+  <div class="btn-group float-right">
+    <button class="btn btn-danger border">Delete</button>
+    <button class="btn btn-success border" (click)="getWeek()" >Save</button>
+  </div>
+</div>
+<app-form-modal
+  [show]="show" [modalType]="modalType" (onClose)="close($event)"
+  [list]="stuff" *ngIf="show" ></app-form-modal>

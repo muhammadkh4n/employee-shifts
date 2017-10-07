@@ -1,0 +1,48 @@
+class StaffsController < ApplicationController
+  before_action :set_shop
+  before_action :set_staff, except: [:index, :create]
+  
+  def index
+    render json: @shop.staffs, status: :ok
+  end
+
+  def show
+    render json: @staff, status: :ok
+  end
+
+  def create
+    @shop = Staff.create(shop_params)
+    if @shop
+      render json: @shop, status: :created
+    else
+      render json: {errors: @shop.errors.full_messages, success: false}, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @shop.update(shop_params)
+      render json: @shop, status: :ok
+    else
+      render json: {errors: @shop.errors.full_messages, success: false}, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @shop.destroy
+    render json: Shop.all, status: :ok
+  end
+
+  private
+  def staff_params
+    params.permit(:name, :title)
+  end
+
+  def set_shop
+    @shop = Shop.find(params[:shop_id])
+  end
+
+  def set_staff
+    @staff = @shop.staffs.find(params[:id])
+  end
+end
+

@@ -1,0 +1,52 @@
+<app-header></app-header>
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thurs</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let s of shops; let i = index">
+    <tr>
+      <th scope="row">
+        <select class="form-control form-control-sm"
+                [(ngModel)]="week.shops[i].name" >
+          <option value="" [selected]="true" >Select Shop</option>
+          <option *ngFor="let shop of shops" [value]="shop.name">{{shop.name}}</option>
+        </select>
+      </th>
+      <td *ngFor="let n of [1,2,3,4,5,6,7]; let in = index">
+        <select class="form-control form-control-sm"
+                [(ngModel)]="week.shops[i].slots[in]">
+          <option *ngFor="let slot of slots" [value]="slot.timing">{{slot.timing}}</option>
+        </select>
+      </td>
+      <td class="" >
+        <button (click)="addStaff(i)" >+</button>
+      </td>
+    </tr>
+    <tr *ngFor="let st of week.shops[i].staffs; let stin = index" >
+      <th scope="row">
+        <select class="form-control form-control-sm"
+                [(ngModel)]="week.shops[i].staffs[stin].name">
+          <option value="" [selected]="true" >Select Staff</option>
+          <option *ngFor="let staff of staffs"
+                  [value]="staff.name">{{staff.name}}</option>
+        </select>
+      </th>
+      <td *ngFor="let n of [1,2,3,4,5,6,7]; let in = index">
+        <select id="" name="" class="form-control form-control-sm"
+                [(ngModel)]="week.shops[i].staffs[stin].slots[in]">
+          <option *ngFor="let slot of slots" [value]="slot.timing">{{slot.timing}}</option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-actions [week]="week" ></app-actions>

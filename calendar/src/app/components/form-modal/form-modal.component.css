@@ -1,0 +1,12 @@
+label {
+    text-transform: capitalize;
+}
+
+.modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-content {
+    box-shadow: 0 4px 22px 7px rgba(10,10,10, 0.3);
+}

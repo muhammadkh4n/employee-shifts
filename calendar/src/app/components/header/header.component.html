@@ -1,0 +1,14 @@
+<div class="row week-header align-items-center">
+  <div class="col-10 text-center">
+    <form #form="ngForm">
+      <div class="form-row">
+        <div class="col-7">
+          <date-picker [(ngModel)]="date" name="date" [showClearButton]="false"></date-picker>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary btn-sm btn-block">Search</button>
+  </div>
+</div>
