@@ -3,4 +3,22 @@
     text-align: center;
 }
 
+select {
+    border: 1px solid #fff;
+    background-color: transparent;
+}
 
+select.form-control:focus {
+    border: none;
+}
+
+.form-control.shop {
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.form-control.staff {
+    color: blue;
+    font-size: 0.9em;
+    text-indent: 10px;
+}
