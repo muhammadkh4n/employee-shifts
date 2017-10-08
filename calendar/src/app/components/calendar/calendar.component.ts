@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../../services/shop.service';
 import { SlotService } from '../../services/slot.service';
 import { StaffService } from '../../services/staff.service';
+import { WeekService } from '../../services/week.service';
 
 @Component({
   selector: 'app-calendar',
@@ -18,12 +19,17 @@ export class CalendarComponent implements OnInit {
   
   constructor(private Shop: ShopService,
               private Slot: SlotService,
-              private Staff: StaffService) { }
+              private Staff: StaffService,
+              private Week: WeekService) { }
 
   ngOnInit() {
     this.getShops();
     this.getSlots();
     this.getStaffs();
+  }
+
+  doSearch(moment) {
+    console.log(moment.week(), moment.month(), moment.year());
   }
 
   getShops() {

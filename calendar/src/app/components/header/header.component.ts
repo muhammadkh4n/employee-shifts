@@ -7,18 +7,16 @@ import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/cor
 })
 export class HeaderComponent implements OnInit {
 
-  date: string;
-  @Output() searchWeek = new EventEmitter<object>();
-  @ViewChild('form') form;
+  date: any;
+  @Output() searchWeek = new EventEmitter<any>();
   
   constructor() { }
 
   ngOnInit() {
-    console.log(this.date);
   }
 
-  onSearch() {
-    
+  doSearch() {
+    this.searchWeek.emit(this.date);
   }
 
 }

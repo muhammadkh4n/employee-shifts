@@ -57,18 +57,18 @@ Slot.create! [
 ]
 
 Week.create! [{
-  starting_date: '342',
+  starting_date: '40-10-2017',
   shops: [
     {
       name: 'Ebay co',
       slots: ['2-9', '5-10', '9-5'],
       staffs: [
         {
-          name: 'khan',
+          name: 'Khan - HRM',
           slots: ['2-9', '5-10', '9-5']
         },
         {
-          name: 'ahmed',
+          name: 'Ahmed - CEO',
           slots: ['2-9', '5-10', '9-5']
         }
       ]
@@ -78,11 +78,11 @@ Week.create! [{
       slots: ['2-9', '5-10', '9-5'],
       staffs: [
         {
-          name: 'khan',
+          name: 'Khan - HRM',
           slots: ['2-9', '5-10', '9-5']
         },
         {
-          name: 'ahmed',
+          name: 'Ahmed - CEO',
           slots: ['2-9', '5-10', '9-5']
         }
       ]
