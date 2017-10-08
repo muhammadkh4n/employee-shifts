@@ -1,5 +1,5 @@
 class WeeksController < ApplicationController
-  before_action :set_week, only: [:show, :update]
+  before_action :set_week, only: [:show, :update, :destroy]
 
   def index
     render json: Week.all
@@ -14,7 +14,7 @@ class WeeksController < ApplicationController
     @week = Week.new(week_params)
 
     if @week.save
-      render json: @week, status: :created
+      render json: @week
     else
       render json: @week.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class WeeksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_week
-      @week = Week.find_by(starting_date: params[:starting_date])
+      @week = Week.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

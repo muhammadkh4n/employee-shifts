@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ShopService } from '../../services/shop.service';
 import { StaffService } from '../../services/staff.service'
 import { SlotService } from '../../services/slot.service';
+import { WeekService } from '../../services/week.service';
 
 @Component({
   selector: 'app-actions',
@@ -12,14 +13,18 @@ import { SlotService } from '../../services/slot.service';
 export class ActionsComponent implements OnInit {
 
   @Input() week: any;
+  @Input() isUpdate: any;
   
   show: boolean = false;
   modalType: string;
   stuff: any = [];
+  error: string;
+  msg: string;
   
   constructor(private Shop: ShopService,
               private Staff: StaffService,
-              private Slot: SlotService) { }
+              private Slot: SlotService,
+              private Week: WeekService) { }
 
   ngOnInit() {
   }
@@ -29,8 +34,35 @@ export class ActionsComponent implements OnInit {
     this.modalType = cat;
   }
 
-  getWeek() {
-    console.log(this.week);
+  saveWeek() {
+    if (!this.week.starting_date) {
+      this.error = "Set date first to save!";
+      setTimeout(() => {
+        this.error = null;
+      }, 3000);
+      return;
+    }
+    delete this.week._id
+    this.Week.saveWeek(this.week)
+      .subscribe(res => {
+        console.log("SAVED WEEK", res);
+        this.msg = "SAVED!"
+        setTimeout(() => {
+          this.msg = null;
+        }, 3000);
+      });
+  }
+
+  updateWeek() {
+    delete this.week._id;
+    this.Week.updateWeek(this.week)
+      .subscribe(res => {
+        console.log("UPDATED WEEK");
+        this.msg = "UPDATED!";
+        setTimeout(() => {
+          this.msg = null;
+        }, 3000);
+      });
   }
 
   close(e) {

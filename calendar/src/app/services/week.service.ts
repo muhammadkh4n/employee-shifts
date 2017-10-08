@@ -10,14 +10,26 @@ export class WeekService {
   constructor(private http: Http) { }
 
   getWeek(weekDate: string) {
-    return this.http.get(ENV.api+'/weeks?starting_date='+weekDate)
+    return this.http.get(ENV.api+'/weeks/'+weekDate)
       .map(res => res.json());
   }
 
-  saveWeek(week) {
+  saveWeek(week: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(ENV.api+'/weeks', week, headers)
+      .map(res => res.json());
+  }
+
+  updateWeek(week: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(ENV.api+'/weeks/'+week.starting_date, week, headers)
+      .map(res => res.json());
+  }
+
+  deleteWeek(weekDate: string) {
+    return this.http.delete(ENV.api+'/weeks/'+weekDate)
       .map(res => res.json());
   }
 }

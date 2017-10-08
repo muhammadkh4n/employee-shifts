@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +9,22 @@ export class HeaderComponent implements OnInit {
 
   date: any;
   @Output() searchWeek = new EventEmitter<any>();
+  error: string;
+  @Input() msg: any;
   
   constructor() { }
 
   ngOnInit() {
   }
 
-  doSearch() {
+  dateChanged(value) {
+    if (!this.date) {
+      this.error = "Select a date first!";
+      setTimeout(() => {
+        this.error = null;
+      }, 3000);
+      return;
+    }
     this.searchWeek.emit(this.date);
   }
 

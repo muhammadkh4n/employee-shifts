@@ -7,9 +7,22 @@
     <button class="btn btn-light border"
             (click)="formModal('slot')" >Manage Time Slots</button>
   </div>
-  <div class="btn-group float-right">
-    <button class="btn btn-danger border">Delete</button>
-    <button class="btn btn-success border" (click)="getWeek()" >Save</button>
+  <div class="row float-right no-gutters">
+    <div class="pr-2 pt-2" >
+      <div class="text-danger" *ngIf="error" >
+        {{error}}
+      </div>
+      <div class="text-success" *ngIf="msg" >
+        {{msg}}
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-success" *ngIf="!isUpdate"
+              (click)="saveWeek()" >Save</button>
+      <button class="btn btn-success" *ngIf="isUpdate"
+              (click)="updateWeek()">Update</button>
+    </div>
   </div>
 </div>
 <app-form-modal
