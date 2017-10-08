@@ -18,6 +18,10 @@ export class ExportComponent implements OnInit {
   ngOnInit() {
   }
 
+  resetImage() {
+    this.image = null;
+  }
+
   capture(media) {
     let el = $('#schedule-table');
     el.find('.add-staff-button').hide();

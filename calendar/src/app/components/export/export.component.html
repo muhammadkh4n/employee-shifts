@@ -16,7 +16,7 @@
                 (click)="capture('image')">Save as Image</button>
         <a class="btn btn-block btn-success"
            href="{{image}}" *ngIf="image"
-           download="schedule.jpg" >Download Image</a>
+           download="schedule.jpg" (click)="resetImage()" >Download Image</a>
         <button class="btn btn-block btn-primary"
                 (click)="capture('print')" >Print</button>
       </div>
