@@ -22,3 +22,12 @@ select.form-control:focus {
     font-size: 0.9em;
     text-indent: 10px;
 }
+
+tr:nth-child(2n) .form-control.slot {
+    color: red;
+}
+
+tr:nth-child(2n+1) .form-control.slot {
+    color: #666;
+    font-weight: bold;
+}
