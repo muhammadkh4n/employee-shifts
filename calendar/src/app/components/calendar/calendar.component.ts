@@ -19,6 +19,7 @@ export class CalendarComponent implements OnInit {
   msg: any;
   update: any;
   weekDate: string;
+  showDate: string;
   
   constructor(private Shop: ShopService,
               private Slot: SlotService,
@@ -32,6 +33,7 @@ export class CalendarComponent implements OnInit {
   }
 
   doSearch(moment) {
+    this.showDate = moment.format('MMM Do, YYYY');
     this.weekDate = moment.week()+"-"+moment.month()+"-"+moment.year();
     this.Week.getWeek(this.weekDate)
       .subscribe(res => {

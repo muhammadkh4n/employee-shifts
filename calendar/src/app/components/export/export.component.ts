@@ -11,6 +11,8 @@ declare var jsPDF:any;
 })
 export class ExportComponent implements OnInit {
 
+  image: any;
+  
   constructor() { }
 
   ngOnInit() {
@@ -26,7 +28,8 @@ export class ExportComponent implements OnInit {
         .replace("image/jpeg", "image/octet-stream");
       
       if (media === 'image') {
-        window.location.href = image;
+        // window.location.href = image;
+        this.image = img;
       }
       if (media == 'email') {
         window.location.href = 'mailto:test@test.com?subject=Schedule&attach='+img;

@@ -1,6 +1,9 @@
 <app-header (searchWeek)="doSearch($event)" [msg]="msg" ></app-header>
 <table class="table table-bordered text-center" id="schedule-table" >
   <thead>
+    <tr *ngIf="showDate" >
+      <th colspan="8" class="py-2" >{{showDate}}</th>
+    </tr>
     <tr>
       <th></th>
       <th>Mon</th>
