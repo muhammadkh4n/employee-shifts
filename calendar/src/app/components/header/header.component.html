@@ -1,17 +1,20 @@
-<div class="row week-header align-items-center">
+<div class="row week-header align-items-center no-gutters">
   <div class="col">
     <form #form="ngForm">
       <div class="form-row">
         <div class="col-7">
           <date-picker [(ngModel)]="date" (ngModelChange)="dateChanged($event)" name="date" [showClearButton]="false"></date-picker>
         </div>
-        <div class="col-5 text-danger pt-2" *ngIf="error">
+        <div class="col-4 text-danger pt-2" *ngIf="error">
           {{error}}
         </div>
-        <div class="col-5 text-danger pt-2" *ngIf="msg">
+        <div class="col-4 text-danger pt-2" *ngIf="msg">
           {{msg.status}} {{msg.error}}! <strong class="text-success" >Create new schedule :)</strong>
         </div>
       </div>
     </form>
+  </div>
+  <div class="col-1">
+    <app-export></app-export>
   </div>
 </div>

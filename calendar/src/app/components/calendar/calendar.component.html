@@ -1,5 +1,5 @@
 <app-header (searchWeek)="doSearch($event)" [msg]="msg" ></app-header>
-<table class="table table-bordered text-center">
+<table class="table table-bordered text-center" id="schedule-table" >
   <thead>
     <tr>
       <th></th>
@@ -28,7 +28,7 @@
             <option *ngFor="let slot of slots" [value]="slot.timing">{{slot.timing}}</option>
           </select>
         </td>
-        <td class="" >
+        <td class="add-staff-button" >
           <button (click)="addStaff(i)" >+</button>
         </td>
       </tr>

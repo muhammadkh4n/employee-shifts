@@ -16,6 +16,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ActionsComponent } from './components/actions/actions.component';
 import { FormModalComponent } from './components/form-modal/form-modal.component';
+import { ExportComponent } from './components/export/export.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormModalComponent } from './components/form-modal/form-modal.component
     CalendarComponent,
     HeaderComponent,
     ActionsComponent,
-    FormModalComponent
+    FormModalComponent,
+    ExportComponent
   ],
   imports: [
     BrowserModule,
