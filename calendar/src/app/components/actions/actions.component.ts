@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { ShopService } from '../../services/shop.service';
 import { StaffService } from '../../services/staff.service'
@@ -14,6 +14,7 @@ export class ActionsComponent implements OnInit {
 
   @Input() week: any;
   @Input() isUpdate: any;
+  @Output() onDelete = new EventEmitter<boolean>();
   
   show: boolean = false;
   modalType: string;
@@ -63,6 +64,18 @@ export class ActionsComponent implements OnInit {
           this.msg = null;
         }, 3000);
       });
+  }
+
+  deleteWeek() {
+    this.Week.deleteWeek(this.week.starting_date)
+      .subscribe(res => {
+        console.log("DELETED WEEK");
+        this.msg = "DELETED!";
+        this.onDelete.emit(true);
+        setTimeout(() => {
+          this.msg = null;
+        }, 3000);
+      })
   }
 
   close(e) {

@@ -51,4 +51,4 @@
     </ng-container>
   </tbody>
 </table>
-<app-actions [week]="week" [isUpdate]="update" ></app-actions>
+<app-actions [week]="week" [isUpdate]="update" (onDelete)="weekDeleted($event)" ></app-actions>

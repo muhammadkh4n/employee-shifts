@@ -18,6 +18,7 @@ export class CalendarComponent implements OnInit {
   week: any = {};
   msg: any;
   update: any;
+  weekDate: string;
   
   constructor(private Shop: ShopService,
               private Slot: SlotService,
@@ -31,8 +32,8 @@ export class CalendarComponent implements OnInit {
   }
 
   doSearch(moment) {
-    let weekDate = moment.week()+"-"+moment.month()+"-"+moment.year();
-    this.Week.getWeek(weekDate)
+    this.weekDate = moment.week()+"-"+moment.month()+"-"+moment.year();
+    this.Week.getWeek(this.weekDate)
       .subscribe(res => {
         this.update = true;
         console.log("WEEK", res);
@@ -40,7 +41,7 @@ export class CalendarComponent implements OnInit {
       }, err => {
         this.update = false;
         this.initWeek();
-        this.week.starting_date = weekDate;
+        this.week.starting_date = this.weekDate;
         console.log("SEARCH ERROR", err.json());
         this.msg = err.json();
         setTimeout(() => {
@@ -84,6 +85,14 @@ export class CalendarComponent implements OnInit {
       });
     }
     console.log("WEEK", this.week);
+  }
+
+  weekDeleted(isDeleted) {
+    if (isDeleted) {
+      this.update = false;
+      this.initWeek();
+      this.week.starting_date = this.weekDate;
+    }
   }
 
   staffChanged(staff) {

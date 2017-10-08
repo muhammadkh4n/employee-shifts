@@ -17,7 +17,8 @@
       </div>
     </div>
     <div class="btn-group">
-      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-danger" *ngIf="isUpdate"
+              (click)="deleteWeek()" >Delete</button>
       <button class="btn btn-success" *ngIf="!isUpdate"
               (click)="saveWeek()" >Save</button>
       <button class="btn btn-success" *ngIf="isUpdate"
