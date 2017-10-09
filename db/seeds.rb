@@ -61,7 +61,6 @@ Week.create! [{
   shops: [
     {
       name: 'Ebay co',
-      slots: ['2-9', '5-10', '', '9-5', '', '', ''],
       staffs: [
         {
           name: 'Khan - HRM',
@@ -75,7 +74,6 @@ Week.create! [{
     },
     {
       name: 'Amazon co',
-      slots: ['2-9', '5-10', '', '9-5', '', '', ''],
       staffs: [
         {
           name: 'Khan - HRM',

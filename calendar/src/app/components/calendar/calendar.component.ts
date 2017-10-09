@@ -83,7 +83,6 @@ export class CalendarComponent implements OnInit {
       this.week.shops.push({
         name: '',
         staffs: [],
-        slots: ["","","","","","",""]
       });
     }
     console.log("WEEK", this.week);
@@ -102,11 +101,14 @@ export class CalendarComponent implements OnInit {
   }
 
   addStaff(index) {
-    console.log("HEYYYYYYy");
     this.week.shops[index].staffs.push({
       name: '',
       slots: ["","","","","","",""]
     });
+  }
+
+  removeStaff(shop, index) {
+    this.week.shops[shop].staffs.splice(index, 1);
   }
 
 }

@@ -25,11 +25,11 @@
             <option *ngFor="let shop of shops" [value]="shop.name">{{shop.name}}</option>
           </select>
         </th>
-        <td *ngFor="let n of [1,2,3,4,5,6,7]; let in = index">
-          <select class="form-control form-control-sm slot"
-                  [(ngModel)]="week.shops[i].slots[in]">
-            <option *ngFor="let slot of slots" [value]="slot.timing">{{slot.timing}}</option>
-          </select>
+        <td colspan="7">
+          <!-- <select class="form-control form-control-sm slot" -->
+          <!--         [(ngModel)]="week.shops[i].slots[in]"> -->
+          <!--   <option *ngFor="let slot of slots" [value]="slot.timing">{{slot.timing}}</option> -->
+          <!-- </select> -->
         </td>
         <td class="add-staff-button" >
           <button (click)="addStaff(i)" >+</button>
@@ -49,6 +49,9 @@
                   [(ngModel)]="week.shops[i].staffs[stin].slots[in]">
             <option *ngFor="let slot of slots" [value]="slot.timing">{{slot.timing}}</option>
           </select>
+        </td>
+        <td class="remove-staff-button" >
+          <button (click)="removeStaff(i, stin)">-</button>
         </td>
       </tr>
     </ng-container>

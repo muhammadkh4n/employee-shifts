@@ -23,15 +23,6 @@ select.form-control:focus {
     text-indent: 10px;
 }
 
-tr:nth-child(2n) .form-control.slot {
-    color: red;
-}
-
-tr:nth-child(2n+1) .form-control.slot {
-    color: #666;
-    font-weight: bold;
-}
-
 .table {
     background: #fff;
 }

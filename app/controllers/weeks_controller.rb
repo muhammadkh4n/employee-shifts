@@ -46,7 +46,6 @@ class WeeksController < ApplicationController
         {
           shops: [
             :name,
-            {slots: []},
             {staffs: [:name, :title, {slots: []}]}
           ]
         }
